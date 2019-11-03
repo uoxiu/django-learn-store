@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Add new product</h1>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <form method="post" action="{% url 'product_add_save' %}">
+                {% csrf_token %}
+                {{ add_form|crispy }}
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
